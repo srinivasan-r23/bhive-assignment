@@ -10,7 +10,7 @@ const Features = () => {
         {FEATURES_SECTION.map((section, index) => (
           <div
             key={section?.id}
-            className={`h-[80px] flex justify-center lg:justify-start items-center flex-col lg:flex-row gap-2 lg:gap-4 bg-white lg:bg-[#F9FAFF] shadow-[0px_2px_4px_0px_#0000000F] lg:shadow-none lg:rounded-none p-3 ${
+            className={`h-[80px] cursor-pointer transition-all duration-150 hover:shadow-md flex justify-center lg:justify-start items-center flex-col lg:flex-row gap-2 lg:gap-4 bg-white lg:bg-[#F9FAFF] shadow-[0px_2px_4px_0px_#0000000F] lg:shadow-none lg:rounded-none p-3 ${
               index < 4 ? `lg:border-b ` : ""
             } ${
               index === 3 || index === 7 ? "" : "lg:border-r"

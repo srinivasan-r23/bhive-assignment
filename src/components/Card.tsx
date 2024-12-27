@@ -12,7 +12,7 @@ const Card = (props: { space: Location }) => {
   const totalPrice = (data?.day_pass_price ?? 0) * days * (1 - discount / 100);
 
   return (
-    <div className="bg-white px-3 pt-4 pb-3 border rounded-lg border-[#EEE7E7] shadow-[0px_2px_4px_0px_#0000000F]">
+    <div className="transition-all duration-150 hover:shadow-lg cursor-pointer bg-white px-3 pt-4 pb-3 border rounded-lg border-[#EEE7E7] shadow-[0px_2px_4px_0px_#0000000F]">
       <div className="w-full flex">
         <p className="flex-1 text-[#263238] text-xl font-semibold pr-12">
           {data?.name}
@@ -51,7 +51,7 @@ const Card = (props: { space: Location }) => {
       <div className="flex items-center mt-[22px] gap-3">
         <button
           type="button"
-          className="bg-[#F9F9F9] py-2 px-3 text-sm border-[0.5px] rounded-md flex-1"
+          className="bg-[#F9F9F9] py-2 px-3 text-sm border-[0.5px] rounded-md flex-1 hover:scale-105 hover:shadow-md transition-all duration-150"
         >
           <div className="flex justify-between items-center ">
             <div>
@@ -93,7 +93,7 @@ const Card = (props: { space: Location }) => {
         </button>
         <button
           type="button"
-          className="bg-[#FFCF4B] border-[#FFC422] py-[9px] px-3 text-sm border-[0.5px] rounded-md flex-1 relative"
+          className="bg-[#FFCF4B] border-[#FFC422] hover:scale-105 hover:shadow-md transition-all duration-150 py-[9px] px-3 text-sm border-[0.5px] rounded-md flex-1 relative"
         >
           <p className="absolute left-1/3 -top-3 text-[8px] bg-[#263238] border border-[#263238] rounded-[3px]  px-3 text-nowrap text-[#FFFDF7]">
             {discount}% Discount

@@ -9,7 +9,7 @@ const Heading = (props?: { text: string; color?: string }) => {
         {props?.text}
       </h3>
       <svg
-        className="lg:hidden"
+        className="lg:hidden cursor-pointer"
         width="25"
         height="8"
         viewBox="0 0 25 8"
