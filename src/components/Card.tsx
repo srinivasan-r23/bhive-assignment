@@ -41,11 +41,11 @@ const Card = (props: { space: Location }) => {
           </a>
         </div>
       </div>
-      <div className="flex">
+      <div className="overflow-hidden rounded-md h-[202px]">
         <img
-          className="h-[202px] rounded-md flex-1"
           src={updatedUrl}
           alt={data?.name}
+          className="h-full w-full object-cover transition-transform duration-300 hover:scale-110"
         />
       </div>
       <div className="flex items-center mt-[22px] gap-3">
@@ -56,9 +56,11 @@ const Card = (props: { space: Location }) => {
           <div className="flex justify-between items-center ">
             <div>
               <p>Day Pass</p>
-              <p className="font-semibold text-xl text-[#263238] pt-2">
+              <p className="font-semibold text-xl text-[#263238] pt-2 text-nowrap">
                 ₹ {data?.day_pass_price}
-                <span className="font-medium text-xs opacity-80">/ Day</span>
+                <span className="font-medium text-xs opacity-80 text-nowrap">
+                  / Day
+                </span>
               </p>
             </div>
             <svg
