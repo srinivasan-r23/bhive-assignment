@@ -1,34 +1,51 @@
-const Card = () => {
+import { Location } from "../models/space";
+import { BASE_IMAGE_URL } from "../utils/constants";
+
+const Card = (props: { space: Location }) => {
+  const data = props?.space;
+  const mapUrl = `http://maps.google.com/maps?q=${data?.latitude},${data?.longitude}`;
+  const imageUrl = props?.space?.images?.[0]?.split("/");
+  const updatedUrl =
+    BASE_IMAGE_URL + imageUrl?.[0] + "/images/centers/" + imageUrl?.[1];
+  const days = 10;
+  const discount = data?.day_pass_discounts_percentage?.[days]?.value ?? 0;
+  const totalPrice = (data?.day_pass_price ?? 0) * days * (1 - discount / 100);
+
   return (
-    <div className="bg-white px-3 pt-4 pb-3 border rounded-lg border-[#EEE7E7] shadow-[0px_2px_4px_0px_#0000000F] mt-10">
-      <div className="flex justify-between">
-        <p className="text-[#263238] text-xl font-semibold">
-          HSR Sector 6, Service Road
+    <div className="bg-white px-3 pt-4 pb-3 border rounded-lg border-[#EEE7E7] shadow-[0px_2px_4px_0px_#0000000F]">
+      <div className="w-full flex">
+        <p className="flex-1 text-[#263238] text-xl font-semibold pr-12">
+          {data?.name}
         </p>
-        <div className="rounded-md border flex flex-col items-center bg-[#F9F9F9] cursor-pointer py-2 px-4">
-          <svg
-            className="h-[18px] w-[18px]"
-            width="18"
-            height="18"
-            viewBox="0 0 18 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <div className="rounded-md border flex flex-col items-center bg-[#F9F9F9] cursor-pointer py-1 mb-2">
+          <a
+            className="w-[40px] h-[40px] items-center flex flex-col gap-2 pt-1"
+            href={mapUrl}
+            target="_blank"
           >
-            <path
-              d="M9 18C7.75909 18 6.58977 17.7648 5.49205 17.2943C4.39432 16.8239 3.43977 16.183 2.62841 15.3716C1.81705 14.5602 1.17614 13.6057 0.705682 12.508C0.235227 11.4102 0 10.2409 0 9C0 7.74545 0.235227 6.57273 0.705682 5.48182C1.17614 4.39091 1.81705 3.43977 2.62841 2.62841C3.43977 1.81705 4.39432 1.17614 5.49205 0.705682C6.58977 0.235227 7.75909 0 9 0C10.2545 0 11.4273 0.235227 12.5182 0.705682C13.6091 1.17614 14.5602 1.81705 15.3716 2.62841C16.183 3.43977 16.8239 4.39091 17.2943 5.48182C17.7648 6.57273 18 7.74545 18 9C18 10.2409 17.7648 11.4102 17.2943 12.508C16.8239 13.6057 16.183 14.5602 15.3716 15.3716C14.5602 16.183 13.6091 16.8239 12.5182 17.2943C11.4273 17.7648 10.2545 18 9 18ZM8.48864 15.3614C8.625 15.4977 8.78182 15.5659 8.95909 15.5659C9.13636 15.5659 9.29318 15.4977 9.42955 15.3614L15.3205 9.47045C15.4568 9.33409 15.525 9.17045 15.525 8.97955C15.525 8.78864 15.4568 8.625 15.3205 8.48864L9.42955 2.59773C9.29318 2.46136 9.13636 2.39318 8.95909 2.39318C8.78182 2.39318 8.625 2.46136 8.48864 2.59773L2.59773 8.48864C2.46136 8.625 2.39318 8.78864 2.39318 8.97955C2.39318 9.17045 2.46136 9.33409 2.59773 9.47045L8.48864 15.3614ZM5.70682 11.4341V8.16136C5.70682 7.91591 5.78182 7.71818 5.93182 7.56818C6.08182 7.41818 6.27955 7.34318 6.525 7.34318H9.92045L9.06136 6.44318L10.2068 5.29773L13.0705 8.16136L10.2068 11.025L9.06136 9.87955L9.92045 8.97955H7.34318V11.4341H5.70682ZM9 16.3636C11.0591 16.3636 12.8011 15.6511 14.2261 14.2261C15.6511 12.8011 16.3636 11.0591 16.3636 9C16.3636 6.94091 15.6511 5.19886 14.2261 3.77386C12.8011 2.34886 11.0591 1.63636 9 1.63636C6.94091 1.63636 5.19886 2.34886 3.77386 3.77386C2.34886 5.19886 1.63636 6.94091 1.63636 9C1.63636 11.0591 2.34886 12.8011 3.77386 14.2261C5.19886 15.6511 6.94091 16.3636 9 16.3636Z"
-              fill="#1C1B1F"
-            />
-          </svg>
-          <span className="text-[#263238] font-medium text-[8px] opacity-50 pt-2 text-nowrap">
-            6 Kms
-          </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18C7.75909 18 6.58977 17.7648 5.49205 17.2943C4.39432 16.8239 3.43977 16.183 2.62841 15.3716C1.81705 14.5602 1.17614 13.6057 0.705682 12.508C0.235227 11.4102 0 10.2409 0 9C0 7.74545 0.235227 6.57273 0.705682 5.48182C1.17614 4.39091 1.81705 3.43977 2.62841 2.62841C3.43977 1.81705 4.39432 1.17614 5.49205 0.705682C6.58977 0.235227 7.75909 0 9 0C10.2545 0 11.4273 0.235227 12.5182 0.705682C13.6091 1.17614 14.5602 1.81705 15.3716 2.62841C16.183 3.43977 16.8239 4.39091 17.2943 5.48182C17.7648 6.57273 18 7.74545 18 9C18 10.2409 17.7648 11.4102 17.2943 12.508C16.8239 13.6057 16.183 14.5602 15.3716 15.3716C14.5602 16.183 13.6091 16.8239 12.5182 17.2943C11.4273 17.7648 10.2545 18 9 18ZM8.48864 15.3614C8.625 15.4977 8.78182 15.5659 8.95909 15.5659C9.13636 15.5659 9.29318 15.4977 9.42955 15.3614L15.3205 9.47045C15.4568 9.33409 15.525 9.17045 15.525 8.97955C15.525 8.78864 15.4568 8.625 15.3205 8.48864L9.42955 2.59773C9.29318 2.46136 9.13636 2.39318 8.95909 2.39318C8.78182 2.39318 8.625 2.46136 8.48864 2.59773L2.59773 8.48864C2.46136 8.625 2.39318 8.78864 2.39318 8.97955C2.39318 9.17045 2.46136 9.33409 2.59773 9.47045L8.48864 15.3614ZM5.70682 11.4341V8.16136C5.70682 7.91591 5.78182 7.71818 5.93182 7.56818C6.08182 7.41818 6.27955 7.34318 6.525 7.34318H9.92045L9.06136 6.44318L10.2068 5.29773L13.0705 8.16136L10.2068 11.025L9.06136 9.87955L9.92045 8.97955H7.34318V11.4341H5.70682ZM9 16.3636C11.0591 16.3636 12.8011 15.6511 14.2261 14.2261C15.6511 12.8011 16.3636 11.0591 16.3636 9C16.3636 6.94091 15.6511 5.19886 14.2261 3.77386C12.8011 2.34886 11.0591 1.63636 9 1.63636C6.94091 1.63636 5.19886 2.34886 3.77386 3.77386C2.34886 5.19886 1.63636 6.94091 1.63636 9C1.63636 11.0591 2.34886 12.8011 3.77386 14.2261C5.19886 15.6511 6.94091 16.3636 9 16.3636Z"
+                fill="#1C1B1F"
+              />
+            </svg>
+            <span className="text-[#263238] font-medium text-[8px] opacity-50 text-nowrap">
+              6 Kms
+            </span>
+          </a>
         </div>
       </div>
-      <div className="">
+      <div className="flex">
         <img
-          className="h-[202px] w-[346px] rounded-md"
-          src="https://s3-alpha-sig.figma.com/img/5c0f/4a6b/c4bfefdb90bb150a3406868ed229e708?Expires=1736121600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FmYDEYYKmFp8zA48XRcJejayTjf4GikX7aSOB9cJrQL-hAtWQdDBnbzKbweu3Bx6nvInlKNc2m5~Byqk~AG~rrkIWT6uMAE1QWrOHXZQPsdUEGpqDTrhdUl-qm~R10sxrbCTlfd1mDytiCyYT2SyzF6g9qSOhY7I2nYSKRxsC8fq~8N80tuANMf0cvjTX7qCMeUGqOQz--LEvLJROssi4x7AXroylOcbNWi9baCVEzKdaD-GaLlNepf~T5fa48~xLOlet7Gv0K3mXpKrJpleNTJPFwnM2XTeL9g0EftKXG46zyiveeB41rvN6j-qrNtZpNt4Os39PU6P~ZtyM0HNog__"
-          alt=""
+          className="h-[202px] rounded-md flex-1"
+          src={updatedUrl}
+          alt={data?.name}
         />
       </div>
       <div className="flex items-center mt-[22px] gap-3">
@@ -40,7 +57,7 @@ const Card = () => {
             <div>
               <p>Day Pass</p>
               <p className="font-semibold text-xl text-[#263238] pt-2">
-                ₹ 249
+                ₹ {data?.day_pass_price}
                 <span className="font-medium text-xs opacity-80">/ Day</span>
               </p>
             </div>
@@ -76,14 +93,17 @@ const Card = () => {
         </button>
         <button
           type="button"
-          className="bg-[#FFC422] py-2 px-3 text-sm border-[0.5px] rounded-md flex-1"
+          className="bg-[#FFCF4B] border-[#FFC422] py-[9px] px-3 text-sm border-[0.5px] rounded-md flex-1 relative"
         >
+          <p className="absolute left-1/3 -top-3 text-[8px] bg-[#263238] border border-[#263238] rounded-[3px]  px-3 text-nowrap text-[#FFFDF7]">
+            {discount}% Discount
+          </p>
           <div className="flex justify-between items-center ">
             <div>
               <p className="text-[#65624C]">Bulk Pass</p>
-              <p className="font-semibold text-xl text-[#263238] pt-2">
-                ₹ 2400
-                <span className="font-medium text-xs opacity-80">
+              <p className="font-semibold text-xl text-[#263238] pt-2 text-nowrap">
+                ₹ {totalPrice}
+                <span className="font-medium text-xs opacity-80 text-nowrap">
                   / 10 Days
                 </span>
               </p>

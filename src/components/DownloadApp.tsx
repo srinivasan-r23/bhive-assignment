@@ -66,7 +66,10 @@ const DownloadApp = () => {
   );
   return (
     <section className="mt-[50px] lg:mt-20">
-      <Heading text={"Download our app now"} color="lg:text-[#605f5f] lg:pl-10" />
+      <Heading
+        text={"Download our app now"}
+        color="lg:text-[#605f5f] lg:pl-10"
+      />
       <div className="lg:pb-52 " />
       <div className="lg:relative flex flex-col lg:flex-row items-center pl-3 pr-3 lg:pr-10 pt-12 pb-3 mb-8 rounded-lg lg:rounded-xl shadow-[0px_2px_19px_0px_#00000012] bg-white lg:p-8 lg:pb-0 mt-3">
         <img
@@ -75,7 +78,7 @@ const DownloadApp = () => {
           className="self-center mb-4 lg:mb-0 lg:absolute lg:bottom-0"
         />
 
-        <div className="flex items-center lg:items-start lg:pl-[500px] lg:flex-col gap-[18px] lg:gap-0">
+        <div className="flex items-center lg:items-start lg:pl-[550px] lg:flex-col gap-[18px] lg:gap-0">
           <p className="font-medium leading-7 text-xl hidden lg:block lg:pb-10 text-[#605F5F]">
             Boost your productivity with the BHIVE Workspace app. Elevate your
             workspace, collaborate efficiently, and unlock exclusive perks.

@@ -1,8 +1,25 @@
+import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <nav className="flex lg:px-[120px] lg:py-[25px] py-5 justify-between items-center px-5  bg-white shadow-md lg:shadow-none">
+    <nav
+      className={`sticky top-0 z-10 flex lg:px-[120px] lg:py-[25px] py-5 justify-between shadow-md items-center px-5  bg-white transition-all duration-250 ${
+        isScrolled ? "lg:shadow-md" : "lg:shadow-none"
+      }`}
+    >
       <a href="/" className="cursor-pointer">
         <img
           src={LOGO_URL}

@@ -1,5 +1,7 @@
 export const LOGO_URL = `https://s3-alpha-sig.figma.com/img/b2cc/2a57/cc11a332cc4d176d24854c51b04fb660?Expires=1736121600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=SzWc-qNCP13tQ9NGcyNL50g2KN-po27LL58UonBzkjcbhinWhJBXR1a~YBDXf~~n~J68F5BH7nYOfXt~JMz3kgUoCWG1d1unPgB5R86cKylz8X6LpXdeyzbWoLkLHAuwd2cxds9bkqIzG74FCyoxJ7VyyrCzraLvEx5ji6Adg~neKF47e0hOegf~5gWCBBHIgGIJ9hcDCHONcUgKTiP7-R7xxQeUNKu9SArbpYZ5cHJdlDh8NxwV86TkMxUP4c0GT94fQbayblyghmNr8zpOiriK6AyCCrWhwbOUFgFSA52-E0GlytfPi8HJx9Wi64mtDFmGy8Jbo~QA0e74E8QRbQ__`;
 
+export const BASE_IMAGE_URL = `https://stag.bhiveworkspace.com/store/`;
+
 export const FEATURES_SECTION = [
   {
     id: 1,
