@@ -7,17 +7,19 @@ import SpaceOverview from "../components/SpaceOverview";
 
 const Home = () => {
   return (
-    <main className="bg-[#F9FAFF] min-h-screen">
+    <main className="bg-[#F9FAFF] min-h-screen flex flex-col">
       {/* Navbar */}
       <Navbar />
       {/* Hero */}
-      <Hero />
-      {/* Features */}
-      <Features />
-      {/* Space Overview */}
-      <SpaceOverview />
-      {/* Download App */}
-      <DownloadApp />
+      <div className="mx-5 lg:mx-[120px] flex-grow">
+        <Hero />
+        {/* Features */}
+        <Features />
+        {/* Space Overview */}
+        <SpaceOverview />
+        {/* Download App */}
+        <DownloadApp />
+      </div>
       {/* Footer */}
       <Footer />
     </main>
