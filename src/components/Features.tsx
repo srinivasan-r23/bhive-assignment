@@ -4,7 +4,7 @@ import Heading from "./Heading";
 const Features = () => {
   return (
     <section className="text-[#263238] pt-[50px] lg:pt-9 lg:pb-10 pb-[30px]">
-      <Heading text={"Why Choose us?"} />
+      <Heading text={"Why Choose us?"} color={"text-[#263238]"} />
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-0 mt-[30px] lg:mt-10">
         {FEATURES_SECTION.map((section, index) => (

@@ -1,9 +1,13 @@
-import React from 'react'
+import Card from "./Card";
+import Heading from "./Heading";
 
 const SpaceOverview = () => {
   return (
-    <div>SpaceOverview</div>
-  )
-}
+    <section>
+      <Heading text={"Our Space Overview"} color={"text-[#263238]"} />
+      <Card />
+    </section>
+  );
+};
 
-export default SpaceOverview
+export default SpaceOverview;
