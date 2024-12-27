@@ -66,21 +66,21 @@ const DownloadApp = () => {
   );
   return (
     <section className="mt-[50px] lg:mt-20">
-      <Heading text={"Download our app now"} color="lg:text-[#605f5f]" />
-
-      <div className="flex flex-col lg:flex-row items-center pl-3 pr-3 lg:pr-10 pt-12 pb-3 mb-8 rounded-lg lg:rounded-xl shadow-[0px_2px_19px_0px_#00000012] bg-white lg:p-8 lg:pb-0 mt-3">
+      <Heading text={"Download our app now"} color="lg:text-[#605f5f] lg:pl-10" />
+      <div className="lg:pb-52 " />
+      <div className="lg:relative flex flex-col lg:flex-row items-center pl-3 pr-3 lg:pr-10 pt-12 pb-3 mb-8 rounded-lg lg:rounded-xl shadow-[0px_2px_19px_0px_#00000012] bg-white lg:p-8 lg:pb-0 mt-3">
         <img
           src="https://booking-stag.bhiveworkspace.com/assets/DownloadSection-5c250488.svg"
           alt="download-placeholders"
-          className="self-center mb-4 lg:mb-0"
+          className="self-center mb-4 lg:mb-0 lg:absolute lg:bottom-0"
         />
 
-        <div className="flex items-center lg:pl-36 lg:items-start lg:flex-col gap-[18px]">
+        <div className="flex items-center lg:items-start lg:pl-[500px] lg:flex-col gap-[18px] lg:gap-0">
           <p className="font-medium leading-7 text-xl hidden lg:block lg:pb-10 text-[#605F5F]">
             Boost your productivity with the BHIVE Workspace app. Elevate your
             workspace, collaborate efficiently, and unlock exclusive perks.
           </p>
-          <div className="flex items-center gap-[18px] pl-3 lg:pl-0">
+          <div className="flex items-center gap-[18px] pl-3 lg:pb-7 lg:pl-0">
             <a
               className="cursor-pointer"
               href="https://play.google.com/store/apps/details?id=com.bhive.workspace&pli=1"
