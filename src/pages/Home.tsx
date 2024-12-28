@@ -11,7 +11,7 @@ const Home = () => {
       {/* Navbar */}
       <Navbar />
       {/* Hero */}
-      <div className="mx-5 lg:mx-[120px] flex-grow">
+      <div className="flex-grow max-w-[1200px] mx-auto px-5">
         <Hero />
         {/* Features */}
         <Features />

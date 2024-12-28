@@ -2,7 +2,7 @@
 import { useContext, useEffect } from "react";
 import Card from "./Card";
 import Heading from "./Heading";
-import { SpaceContext } from "../state/SpaceContext";
+import { SpaceContext } from "../store/SpaceContext";
 import SPACES_DATA from "../mocks/SPACE_DATA.json";
 import { Location } from "../models/space";
 

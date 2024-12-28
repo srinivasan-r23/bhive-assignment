@@ -13,13 +13,13 @@ const Card = (props: { space: Location }) => {
 
   return (
     <div className="transition-all duration-150 hover:shadow-lg cursor-pointer bg-white px-3 pt-4 pb-3 border rounded-lg border-[#EEE7E7] shadow-[0px_2px_4px_0px_#0000000F]">
-      <div className="w-full flex">
-        <p className="flex-1 text-[#263238] text-xl font-semibold pr-12">
+      <div className="w-full flex justify-between items-center mb-4 gap-12">
+        <p className="flex-1 text-[#263238] text-lg lg:text-xl font-semibold">
           {data?.name}
         </p>
-        <div className="rounded-md border flex flex-col items-center bg-[#F9F9F9] cursor-pointer py-1 mb-2">
+        <div className="rounded-md border bg-[#F9F9F9] cursor-pointer py-1 flex-shrink-0 hover:bg-gray-200 transition-all duration-150">
           <a
-            className="w-[40px] h-[40px] items-center flex flex-col gap-2 pt-1"
+            className="w-[40px] h-[40px] flex items-center justify-center"
             href={mapUrl}
             target="_blank"
           >
@@ -35,9 +35,6 @@ const Card = (props: { space: Location }) => {
                 fill="#1C1B1F"
               />
             </svg>
-            <span className="text-[#263238] font-medium text-[8px] opacity-50 text-nowrap">
-              6 Kms
-            </span>
           </a>
         </div>
       </div>
@@ -54,7 +51,7 @@ const Card = (props: { space: Location }) => {
           className="bg-[#F9F9F9] py-2 px-3 text-sm border-[0.5px] rounded-md flex-1 hover:scale-105 hover:shadow-md transition-all duration-150"
         >
           <div className="flex justify-between items-center ">
-            <div>
+            <div className="flex items-start flex-col">
               <p>Day Pass</p>
               <p className="font-semibold text-xl text-[#263238] pt-2 text-nowrap">
                 ₹ {data?.day_pass_price}
@@ -101,7 +98,7 @@ const Card = (props: { space: Location }) => {
             {discount}% Discount
           </p>
           <div className="flex justify-between items-center ">
-            <div>
+            <div className="flex items-start flex-col">
               <p className="text-[#65624C]">Bulk Pass</p>
               <p className="font-semibold text-xl text-[#263238] pt-2 text-nowrap">
                 ₹ {totalPrice}
